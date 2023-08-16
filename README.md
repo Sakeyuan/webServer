@@ -66,16 +66,18 @@
     进入build在终端make,运行main程序
     数据库、ET、LT等配置在配置文件Config.conf文件写入
 
-日志系统类图
+日志系统
+
+类图
     ![](./root/images/3.png)
 
 测试结果
 
-    proactor LT + LT
-        ![](./root/images/1.png)
+proactor LT + LT
+    ![](./root/images/1.png)
 
-    proactor ET + ET
-        ![](./root/images/2.png)
+proactor ET + ET
+    ![](./root/images/2.png)
  
 
 
