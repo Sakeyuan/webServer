@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>awsl</title>
+</head>
+
+<body>
+    <br/><br/>
+    <div align="center">
+        <span class="welcome">你好</span>&nbsp &nbsp &nbsp<span class="username" id="usernameTextSpan"></span>
+    </div>
+    <br/><br/><br/>
+
+    <div align="center">
+        <video width="800" height="400" controls>
+            <source src="natural_scenery.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <script>
+        // 从localStorage中获取用户名
+        var storedUsername = localStorage.getItem("username");
+
+        // 如果用户名存在，则显示在页面上
+        if (storedUsername) {
+            var usernameTextSpan = document.getElementById("usernameTextSpan");
+            usernameTextSpan.textContent = storedUsername;
+        }
+    </script>
+</body>
+
+<style>
+    .welcome {
+        font-size: 30px;
+        font-weight: normal;
+    }
+
+    .username {
+        font-size: 30px;
+        font-weight: normal;
+    }
+</style>
+</html>
