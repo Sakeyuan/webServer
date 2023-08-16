@@ -66,14 +66,22 @@
     进入build在终端make,运行main程序
     数据库、ET、LT等配置在配置文件Config.conf文件写入
 
-## 类图
-![类图](./root/images/3.png)
+<div align="center">
+  <h2>类图</h2>
+  <img src="./root/images/3.png" width="600" height="100">
+</div>
 
-## 测试结果 - proactor LT + LT
-<img src="./root/images/1.png" width="400" height="300">
+<div>
+  <h2>测试结果 - proactor LT + LT</h2>
+  <img src="./root/images/1.png" width="600" height="100">
+</div>
 
-## 测试结果 - proactor ET + ET
-<img src="./root/images/2.png" width="400" height="300">
+<div>
+  <h2>测试结果 - proactor ET + ET</h2>
+  <img src="./root/images/2.png" width="600" height="100">
+</div>
+
+
 
  
 
