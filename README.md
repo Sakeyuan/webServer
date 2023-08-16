@@ -73,12 +73,12 @@
 
 <div>
   <h2>测试结果 - proactor LT + LT</h2>
-  <img src="./root/images/1.png" width="600" height="200">
+  <img src="./root/images/1.png" >
 </div>
 
 <div>
   <h2>测试结果 - proactor ET + ET</h2>
-  <img src="./root/images/2.png" width="600" height="200">
+  <img src="./root/images/2.png">
 </div>
 
 
