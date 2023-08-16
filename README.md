@@ -51,7 +51,7 @@
 <br><br>
 # 主要运用技术：
 
-    线程池 + 数据连接池 + 模拟同步I/O的proactor模式 epoll ET 和 LT模式 + HTTP报文处理状态机 + 时间轮定时器 + C++类日志系统
+    线程池 + 数据连接池 + 模拟同步I/O的proactor模式 + epoll ET 和 LT模式 + HTTP报文处理状态机 + 时间轮定时器 + C++类日志系统
 
 
 <br><br>
