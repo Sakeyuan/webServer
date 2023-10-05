@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+<div id="login" class="login-one">
+    <el-container class="test">
+        <el-header></el-header>
+        <el-main>
+            <br><br>
+            <el-row>
+                <el-col :span="6">&nbsp;</el-col>
+                <el-col :span="8">
+                    <el-form label-width="80px" style="background-color: white;border-radius: 1%;min-width: 500px; opacity: 0.9;padding-left: 10px;padding-right: 10px;" >
+                        <br>
+
+                        <h1 align="center">用户注册</h1>
+                        <el-form-item label="" style="margin-top:40px;">
+                            <el-col :span="20">
+                                <el-input prefix-icon="el-icon-user" v-model="user.userName" placeholder="请输入用户名"></el-input>
+                            </el-col>
+                        </el-form-item>
+
+                        <el-form-item label="">
+                            <el-col :span="20">
+                                <el-input prefix-icon="el-icon-s-check" v-model="user.userPwd" placeholder="请输入密码" show-password></el-input>
+                            </el-col>
+                        </el-form-item>
+
+                        <el-form-item label="">
+                            <el-col :span="20">
+                                <el-input prefix-icon="el-icon-s-check" v-model="user.reuserPwd" placeholder="再次请输入密码" show-password></el-input>
+                            </el-col>
+                        </el-form-item>
+
+                        <el-form-item  style="margin-top: 40px;">
+                            <el-col >
+                                <el-button type="primary" size="" icon="el-icon-user-solid"  @click="reigster" plain="true" style="width: 83%;margin-bottom: 0px;">注册</el-button>
+                            </el-col>
+                        </el-form-item>
+                        <br><br>
+
+                        <el-form-item :inline="true">
+                            <el-col align="right">
+                                <el-link type="primary" @click="back">返回</el-link>
+                            </el-col>
+                        </el-form-item>
+
+                    </el-form>
+                </el-col>
+                <el-col :span="8">&nbsp;</el-col>
+            </el-row>
+
+        </el-main>
+    </el-container>
+</div>
+
+</body>
+
+<script>
+    //创建vue对象
+    new Vue({
+        el:"#login",//绑定html元素
+        data:{ //你需要操作的数据对象
+            user:{
+                userName:"",
+                userPwd:"",
+                reuserPwd:""
+            }
+        },
+        methods:{ //定义vue函数
+            back:function(){
+                window.location.href="login.html";
+            },
+            reigster:function () {//登录函数
+                //记录vue对象
+                const self = this;
+                // 检查用户名和密码是否为空
+                if (this.user.userName === "" || this.user.userPwd === "" || this.user.reuserPwd == "") {
+                    alert("用户名和密码不能为空");
+                    return;
+                }
+                if(this.user.userPwd != this.user.reuserPwd){
+                    alert("两次密码不一致");
+                    return;
+                }
+                //发送ajax请求服务端
+                $.ajax({
+                    url:"/2_register",//请求地址
+                    type:"post",//请求类型
+                    data: {
+                        userName: this.user.userName,  // 只发送用户名
+                        userPwd: this.user.userPwd     // 只发送密码
+                    },
+                    success:function (data) {//请求响应回调函数
+                        if(data.code == 500){
+                            alert(data.msg);
+                        }else{
+                            localStorage.setItem("username", self.user.userName);
+                            window.location.href = "login.html"; //跳转到登录页面
+                        }
+
+                    }
+                })
+
+            }
+        }
+
+    })
+
+</script>
+<style>
+    html,body{
+        margin: 0;/*设置html,body元素的内边距为0，默认是15px*/
+        height: 100%;
+    }
+    .el-header {
+
+    }
+    .el-main {
+
+    }
+    .test{
+        height: 100%
+    }
+    .login-one{
+        background-color:#1c77ac;
+        background-image:url(./images/imag.jpg);
+        background-size: cover;
+        background-repeat:no-repeat;
+        overflow:hidden;
+        height: 100%;
+    }
+
+</style>
+</html>
